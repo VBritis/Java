@@ -2,16 +2,19 @@ public class Tarefa {
     private String nome;
     private String descricao;
     private Membro responsavel;
-    private String prazo;
-    private String status;
+    private int prazo;
+    private int status;
+    private GerenciadorDeTarefas gerenciador;
 
-    public Tarefa(String nome, String descricao, Membro responsavel, String prazo, String status){
+    public Tarefa(String nome, String descricao, Membro responsavel, int prazo, int status, GerenciadorDeTarefas gerenciador){
         this.nome = nome;
         this.descricao = descricao;
         this.responsavel = responsavel;
         this.prazo = prazo;
         this.status = status;
+        this.gerenciador = gerenciador;
         responsavel.addTarefa(this);
+        gerenciador.addTarefa(this);
     }
 
     public String getNome(){
@@ -26,11 +29,11 @@ public class Tarefa {
         return responsavel;
     }
     
-    public String getPrazo(){
+    public int getPrazo(){
         return prazo;
     }
     
-    public String getStatus(){
+    public int getStatus(){
         return status;
     }
     public void setNome(String nome){
@@ -45,11 +48,11 @@ public class Tarefa {
         this.responsavel = responsavel;
     }
     
-    public void setPrazo(String prazo){
+    public void setPrazo(int prazo){
         this.prazo = prazo;
     }
     
-    public void setStatus(String status){
+    public void setStatus(int status){
         this.status = status;
     }
     public String toString(){

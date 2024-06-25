@@ -16,6 +16,11 @@ public class Calendario {
 
     }
 
+    public void setData(int dia, int mes){
+        this.dia = dia;
+        this.mes = mes;
+    }
+
     public void atual(){
         if(this.prazo + this.dia > diasMes()){
             this.dia = (this.prazo + this.dia) - diasMes() ;

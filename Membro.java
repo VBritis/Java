@@ -49,21 +49,36 @@ public class Membro {
         for(int x = 0; x < lista.length; x++){
             if(lista[x] == null){
                 lista[x] = tarefa;
+                break;
             }
+            
         }
     }
     public String getTarefas(){
         String a = "";
         for(int x = 0; x < lista.length; x++){
-            if(lista[x].equals(null)){
+            if(lista[x] == null){
                 break;
             }
             else{
-                a += lista[x];
+                a +=  lista[x].getNome() + ",";
             }
+    
         }
+        
         return a;
     
+    }
+
+    public String tarefaInfo(String nome){
+        for(int x = 0; x < lista.length; x++){
+            if(lista[x].getNome() == nome){
+                return lista[x].toString();
+            }
+        }
+        return "Não foi encontrada tarefa com este nome associada ao membro";
+
+
     }
     
     public String toString(){
