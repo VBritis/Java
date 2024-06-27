@@ -2,17 +2,19 @@ public class Calendario {
     private int [][] calendario;
     private int inicio;
     private int dia;
+    private int prazo;
     private int mes;
     private int ano;
-    private int prazo;
 
-    public Calendario(int dia, int mes, int ano, int inicio,int prazo){
+
+    public Calendario(int dia,int mes, int ano, int prazo,  int inicio){
         this.calendario = new int[6][7];
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
         this.inicio = inicio;
         this.prazo = prazo;
+
 
     }
 

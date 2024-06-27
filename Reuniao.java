@@ -1,22 +1,25 @@
 public class Reuniao {
-    private int data;
-    private int hora;
+    private int dia;
+    private int mes;
     private Membro[] participantes;
     private String assunto;
+    private Projeto projeto;
 
-    public Reuniao(int data, int hora, Membro[] participantes, String assunto){
-        this.data = data;
-        this.hora = hora;
+    public Reuniao(int dia, int mes, Membro[] participantes, String assunto, Projeto projeto){
+        this.dia = dia;
+        this.mes = mes;
         this.participantes = participantes;
         this.assunto = assunto;
+        projeto.addReuniao(this);
+
     }
 
-    public int getData(){
-        return data;
+    public int getDia(){
+        return dia;
     }
     
-    public int getHora(){
-        return hora;
+    public int getMes(){
+        return mes;
     }
     
     public Membro[] getParticipantes(){
@@ -27,12 +30,12 @@ public class Reuniao {
         return assunto;
     }
     
-    public void setData(int data){
-        this.data = data;
+    public void setDia(int dia){
+        this.dia = dia;
     }
     
-    public void setHora(int hora){
-        this.hora = hora;
+    public void setMes(int mes){
+        this.mes = mes;
     }
     
     public void setParticipantes(Membro[] participantes){

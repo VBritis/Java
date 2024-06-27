@@ -4,9 +4,10 @@ public class Tarefa {
     private Membro responsavel;
     private int prazo;
     private int status;
-    private GerenciadorDeTarefas gerenciador;
+    private Gerenciador gerenciador;
+    private Projeto projeto;
 
-    public Tarefa(String nome, String descricao, Membro responsavel, int prazo, int status, GerenciadorDeTarefas gerenciador){
+    public Tarefa(String nome, String descricao, Membro responsavel, int prazo, int status, Projeto projeto ,Gerenciador gerenciador){
         this.nome = nome;
         this.descricao = descricao;
         this.responsavel = responsavel;
@@ -15,6 +16,8 @@ public class Tarefa {
         this.gerenciador = gerenciador;
         responsavel.addTarefa(this);
         gerenciador.addTarefa(this);
+        projeto.addTarefa(this);
+        projeto.addMembro(responsavel);
     }
 
     public String getNome(){

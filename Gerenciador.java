@@ -1,12 +1,54 @@
-public class GerenciadorDeTarefas {
+public class Gerenciador {
     private Tarefa[] listaTarefas;
+    private Projeto[] listaProjetos;
+    private int dia;
+    private int mes;
+    private int ano;
     
 
-    public  GerenciadorDeTarefas(){
+    public  Gerenciador(int dia, int mes, int ano){
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
         listaTarefas = new Tarefa[50];
+        listaProjetos = new Projeto[50];
 
 
     }
+
+    public int getDia(){
+        return dia;
+    }
+
+    public int getMes(){
+        return mes;
+    }
+
+    public int getAno(){
+        return ano;
+    }
+
+
+    public void addProjeto(Projeto projeto){
+        for(int x = 0; x < listaProjetos.length; x++){
+            if(listaProjetos[x] == null){
+                listaProjetos[x] = projeto;
+                break;
+            }
+            
+        }
+    }
+
+    public String getProjeto(String nome){
+        for(int z = 0; z < listaProjetos.length; z++){
+            if(listaProjetos[z].getNome() == nome ){
+                return listaProjetos[z].toString();
+            }
+        }
+        return "Não foi possível encontrar a tarefa em questão";
+    
+}
+
     public void addTarefa(Tarefa tarefa){
             for(int x = 0; x < listaTarefas.length; x++){
                 if(listaTarefas[x] == null){

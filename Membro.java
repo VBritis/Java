@@ -61,7 +61,7 @@ public class Membro {
                 break;
             }
             else{
-                a +=  lista[x].getNome() + ",";
+                a +=  lista[x].getNome() + " | ";
             }
     
         }

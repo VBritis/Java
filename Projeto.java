@@ -1,15 +1,18 @@
 public class Projeto{
     private String nome;
-    private String dataDeTermino;
-    private String dataDeInicio;
+    private int prazo;
     private Tarefa[] listaDeTarefas;
     private Membro[] listaDeMembros;
-    public Projeto(String nome, String dataDeTermino, String dataDeInicio, Tarefa[] listaDeTarefas, Membro[] listaDeMembros){
+    private Calendario calendario;
+    private Reuniao[] listaDeReunioes;
+    private Gerenciador gerenciador;
+    public Projeto(String nome, int prazo ,  Gerenciador gerenciador){
         this.nome = nome;
-        this.dataDeTermino = dataDeTermino;
-        this.dataDeInicio = dataDeInicio;
-        this.listaDeTarefas = listaDeTarefas;
+        this.prazo = prazo;
+        this.listaDeTarefas = new Tarefa[50];
         this.listaDeMembros = new Membro[50];
+        gerenciador.addProjeto(this);
+        this.calendario = new Calendario(gerenciador.getDia(),gerenciador.getMes(),gerenciador.getAno(),prazo,12);
         
         for (int x = 0; x < listaDeTarefas.length; x++) {
             if (listaDeTarefas[x] != null && listaDeTarefas[x].getResponsavel() != null) {
@@ -19,10 +22,49 @@ public class Projeto{
     }
     public String getNome(){
         return nome;
-    }
+    }z
     
     public String getData(){
-        return "Data: " + dataDeInicio + " || " + dataDeTermino ;
+        int[] dias = new int[31];
+        for(int x =0; x < listaDeReunioes.length; x++){ //Fazer calendario que receba mais de um dia para marcar, lista?
+            if(listaDeReunioes[x] != null){
+                listaDeReunioes[x].getDia = tarefa;
+                break;
+        }
+        System.out.println("\n");
+        calendario.atual();
+        calendario.preencherCalend();
+        calendario.imprimirCalen();
+        return"";
+        
+    }
+    public void addTarefa(Tarefa tarefa){
+        for(int x = 0; x < listaDeTarefas.length; x++){
+            if(listaDeTarefas[x] == null){
+                listaDeTarefas[x] = tarefa;
+                break;
+            }
+            
+        }
+    }
+    public void addReuniao(Reuniao reuniao){
+        for(int x = 0; x < listaDeReunioes.length; x++){
+            if(listaDeReunioes[x] == null){
+                listaDeReunioes[x] = reuniao;
+                break;
+            }
+            
+        }
+    }
+
+    public void addMembro(Membro membro){
+        for(int x = 0; x < listaDeMembros.length; x++){
+            if(listaDeMembros[x] == null){
+                listaDeMembros[x] = membro;
+                break;
+            }
+            
+        }
     }
     
     public String getTarefas(){
@@ -32,7 +74,7 @@ public class Projeto{
                 break;
             }
             else{
-                a +=  listaDeTarefas[x].getNome() + ",";
+                a +=  listaDeTarefas[x].getNome() + " | ";
             }
     
         }
@@ -47,7 +89,7 @@ public class Projeto{
                 break;
             }
             else if(listaDeMembros[x] != listaDeMembros[x+1]){
-                a +=  listaDeMembros[x].getNome() + ",";
+                a +=  listaDeMembros[x].getNome() + " | ";
             }
     
         }
@@ -55,7 +97,8 @@ public class Projeto{
         return a;
     
     }
+    
     public String toString(){
-        return "\n"  + "Projeto: " + nome + "\n _______________ \n"  + this.getData() +  "\n _______________ \n" +  "Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Membros " + this.getMembros();
+        return "    Calendario de reuniões" + this.getData() +"\n\n" + "Projeto: " + nome  +  "\n _______________ \n" +  "Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Membros: " + this.getMembros();
     }
 }
