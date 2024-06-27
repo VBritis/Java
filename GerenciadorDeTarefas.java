@@ -22,8 +22,8 @@ public class GerenciadorDeTarefas {
             if(listaTarefas[z].getNome() == nome ){
                 return listaTarefas[z].toString();
             }
-            else if(listaTarefas[z].getResponsavel().getNome() == responsavel){
-                return listaTarefas[z].toString();
+            else if(listaTarefas[z].getResponsavel().getNome() == responsavel){ //Corrigir, quando tiver mais de uma tarefa orientada ao mesmo membro
+                return listaTarefas[z].getResponsavel().getTarefas();
             }
             else if(listaTarefas[z].getResponsavel().getId() == id){
                 return listaTarefas[z].toString();
