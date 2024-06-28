@@ -39,6 +39,14 @@ public class Gerenciador {
         }
     }
 
+    public void setData(int dia, int mes, int ano){
+        this.dia = dia;
+        this.mes = mes;
+        this.ano = ano;
+    }
+
+
+
     public String getProjeto(String nome){
         for(int z = 0; z < listaProjetos.length; z++){
             if(listaProjetos[z].getNome() == nome ){

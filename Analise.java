@@ -16,7 +16,19 @@ public class Analise {
                 soma += projeto.listaDeTarefas[x].getStatus();
                 
             }else{
-                return soma/x + "%";
+                String a = "";
+                for(int y = 0; y <= 10; y++){
+                    if(y <= soma/x/10){
+                        a += "|";
+                    }
+                    else{
+                        a += " ";
+                    }
+                    
+
+                }
+                System.out.println("["+ a +"]");
+                return "     " + soma/x + "%";
             }
         }
         return "Erro";
