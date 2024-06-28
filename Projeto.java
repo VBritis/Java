@@ -1,18 +1,20 @@
 public class Projeto{
     private String nome;
+    private int[] dias;
     private int prazo;
-    private Tarefa[] listaDeTarefas;
+    public Tarefa[] listaDeTarefas;
     private Membro[] listaDeMembros;
     private Calendario calendario;
     private Reuniao[] listaDeReunioes;
     private Gerenciador gerenciador;
-    public Projeto(String nome, int prazo ,  Gerenciador gerenciador){
+    public Projeto(String nome, int prazo, Gerenciador gerenciador){
         this.nome = nome;
-        this.prazo = prazo;
+        this.dias = new int[50];
         this.listaDeTarefas = new Tarefa[50];
         this.listaDeMembros = new Membro[50];
+        this.listaDeReunioes = new Reuniao[50];
         gerenciador.addProjeto(this);
-        this.calendario = new Calendario(gerenciador.getDia(),gerenciador.getMes(),gerenciador.getAno(),prazo,12);
+        this.calendario = new Calendario(2,gerenciador.getMes(),gerenciador.getAno(),prazo,3);//Concertar calendario, o dia aqui ta influenciando
         
         for (int x = 0; x < listaDeTarefas.length; x++) {
             if (listaDeTarefas[x] != null && listaDeTarefas[x].getResponsavel() != null) {
@@ -22,19 +24,19 @@ public class Projeto{
     }
     public String getNome(){
         return nome;
-    }z
+    }
     
-    public String getData(){
-        int[] dias = new int[31];
-        for(int x =0; x < listaDeReunioes.length; x++){ //Fazer calendario que receba mais de um dia para marcar, lista?
+    public String getReunioes(){
+        for(int x = 0; x < listaDeReunioes.length; x++){ 
             if(listaDeReunioes[x] != null){
-                listaDeReunioes[x].getDia = tarefa;
+                dias[x] = listaDeReunioes[x].getDia();
+            }else{
                 break;
-        }
+            }
+    }
         System.out.println("\n");
-        calendario.atual();
         calendario.preencherCalend();
-        calendario.imprimirCalen();
+        calendario.imprimirCalenReunioes(dias);
         return"";
         
     }
@@ -56,6 +58,17 @@ public class Projeto{
             
         }
     }
+
+    public void addDias(int dia){
+        for(int x = 0; x < dias.length; x++){
+            if(dias[x] == 0){
+                dias[x] = dia;
+                break;
+            }
+            
+        }
+    }
+
 
     public void addMembro(Membro membro){
         for(int x = 0; x < listaDeMembros.length; x++){
@@ -99,6 +112,6 @@ public class Projeto{
     }
     
     public String toString(){
-        return "    Calendario de reuniões" + this.getData() +"\n\n" + "Projeto: " + nome  +  "\n _______________ \n" +  "Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Membros: " + this.getMembros();
+        return "    Calendario de reuniões" + this.getReunioes() +"\n\n" + "Projeto: " + nome  +  "\n _______________ \n" +  "Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Membros: " + this.getMembros();
     }
 }

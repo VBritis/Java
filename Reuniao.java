@@ -11,6 +11,7 @@ public class Reuniao {
         this.participantes = participantes;
         this.assunto = assunto;
         projeto.addReuniao(this);
+        projeto.addDias(dia);
 
     }
 

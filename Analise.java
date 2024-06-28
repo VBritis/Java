@@ -1,17 +1,30 @@
 public class Analise {
-    private Tarefa tarefa;
+    private Tarefa[] listaDeTarefas;
+    private int[] porcentagens;
+    private Projeto projeto;
     private Membro responsavel;
-    private Calendario calendario;
-    private int diaAtual;
-
-    public Analise(Tarefa tarefa, Membro responsavel, Calendario calendario){
-        this.tarefa = tarefa;
-        this.responsavel = responsavel;
-        this.calendario = calendario;
+   
+    public Analise(Tarefa[] listaDeTarefas, Projeto projeto){
+        this.listaDeTarefas = listaDeTarefas;
+        this.projeto = projeto;
+        this.porcentagens = new int[50];
     }
-    public void analiseCalendario(){
-       int dias = (tarefa.getStatus() * tarefa.getPrazo()) / 100;
-       calendario.setData(dias, );
+    public String relatorioProjeto(Projeto projeto){
+        int soma = 0;
+        for(int x = 0;x < projeto.listaDeTarefas.length; x++){
+            if(projeto.listaDeTarefas[x] != null){
+                soma += projeto.listaDeTarefas[x].getStatus();
+                
+            }else{
+                return soma/x + "%";
+            }
+        }
+        return "Erro";
+
+        
+
+
+
 
     }
 }

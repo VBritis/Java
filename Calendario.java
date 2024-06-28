@@ -7,7 +7,7 @@ public class Calendario {
     private int ano;
 
 
-    public Calendario(int dia,int mes, int ano, int prazo,  int inicio){
+    public Calendario(int dia,int mes, int ano, int prazo, int inicio){
         this.calendario = new int[6][7];
         this.dia = dia;
         this.mes = mes;
@@ -73,6 +73,38 @@ public class Calendario {
 
         }
         System.out.println("            Mês:" + this.mes);
+    }
+
+
+
+
+    public void imprimirCalenReunioes(int[] dias) {
+        System.out.println("  Dom Seg Ter Qua Qui Sex Sáb");
+    
+        for (int linha = 0; linha < 6; linha++) {
+            for (int coluna = 0; coluna < 7; coluna++) {
+                if (this.calendario[linha][coluna] == 0) {
+                    System.out.print("    ");
+                } else {
+                    boolean isDiaReuniao = false;
+                    for (int dia : dias) {
+                        if (this.calendario[linha][coluna] == dia) {
+                            isDiaReuniao = true;
+                            break;
+                        }
+                    }
+    
+                    if (isDiaReuniao) {
+                        System.out.printf(" |%2d|", this.calendario[linha][coluna]);
+                    } else {
+                        System.out.printf("%4d", this.calendario[linha][coluna]);
+                    }
+                }
+            }
+            System.out.println();
+        }
+    
+        System.out.println("            Mês: " + this.mes);
     }
 
     public static boolean anoBi(int ano){
