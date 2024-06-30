@@ -61,6 +61,40 @@ class Projeto {
         return null;
     }
 
+    
+    public String getMembrosinfo() {
+        String a = "\n";
+        for (int z = 0; z < listaDeMembros.length; z++) {
+            if (listaDeMembros[z] != null) {
+                a += listaDeMembros[z].toString() + "\n";
+            }
+        }
+        return a;
+    }
+
+    public String getReunioesinfo() {
+        String a = "\n";
+        for (int z = 0; z < listaDeReunioes.length; z++) {
+            if (listaDeReunioes[z] != null) {
+                a += listaDeReunioes[z].toString() + "\n";
+            }
+        }
+        return a;
+    }
+
+
+    public String getTarefasinfo() {
+        String a = "\n";
+        for (int x = 0; x < listaDeTarefas.length; x++) {
+            if (listaDeTarefas[x] == null) {
+                break;
+            } else {
+                a += listaDeTarefas[x].toString() + "\n";
+            }
+        }
+        return a;
+    }
+
     public void addTarefa(Tarefa tarefa) {
         // Verifica se a tarefa já existe na lista
         for (int i = 0; i < listaDeTarefas.length; i++) {
@@ -147,8 +181,8 @@ class Projeto {
         String newline = "\n";
         String line = " _______________________________________ ";
     
-        String result = separator + newline;
-        result += "    Calendario de reuniões" + newline;
+        String result = newline;
+        result += "    Calendario de reuniões" + newline + separator;
         result += getReunioes() + newline + newline;
 
         result += "Final project details:" + newline + newline;

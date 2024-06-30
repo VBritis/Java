@@ -145,6 +145,26 @@ public class Main {
                         System.out.println(currentProject.toString());
                         System.out.println("Conclusão:");
                         System.out.println(analise.relatorioProjeto(currentProject));
+                        System.out.println("");
+                        displayMoreInformation();
+                        boolean loop1 = true;
+                        while(loop1){
+                            int moreInf = sc.nextInt();
+                            sc.nextLine(); // Consuming the newline character left after nextInt()
+                            if (moreInf == 1) {
+                                System.out.println(currentProject.getTarefasinfo());
+                            } else if (moreInf == 2) {
+                                    System.out.println(currentProject.getReunioesinfo());
+                                
+                            } else if (moreInf == 3) {
+                                    System.out.println(currentProject.getMembrosinfo());
+                            } else if (moreInf == 4){
+                                loop1 = false;
+                            }
+                            
+                            else {
+                                    System.out.println("Invalid option.");
+                                }}
 
                         continuar = false;
                     } else if (actionChoice == 5) {
@@ -152,13 +172,20 @@ public class Main {
                         String taskName = sc.nextLine();
                         System.out.println("New Status:");
                         int taskStatus = sc.nextInt();
-                        g1.getTarefa(taskName).setStatus(taskStatus);
-                    } else {
-                        System.out.println("Invalid option.");
-                    }
-                }
+                        sc.nextLine(); // Consuming the newline character left after nextInt()
+                        Tarefa tarefa = g1.getTarefa(taskName);
+                        if (tarefa != null) {
+                            tarefa.setStatus(taskStatus);
+                            System.out.println("Task status updated successfully!");     
+                
+                        }} else {
+                    System.out.println("Task not found.");
+                }}
+                   } else {
+                     System.out.println("Invalid option.");
             }
-        }
+            }
+        
         sc.close();
     }
 
@@ -187,6 +214,19 @@ public class Main {
         System.out.println("| To update a task:                    5          |");
         System.out.println("+-------------------------------------------------+");
     }
+
+    private static void displayMoreInformation(){
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To view task information:             1          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To view meeting information:          2          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To view member information:           3          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To end this loop:                     4          |");
+        System.out.println("+-------------------------------------------------+");
+    }
+
     public static String Smile() {
         StringBuilder monitor = new StringBuilder();
         
@@ -214,8 +254,4 @@ public class Main {
         System.out.print(monitor.toString());
         return monitor.toString();
     }
-
-    
 }
-
-

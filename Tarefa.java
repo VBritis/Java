@@ -60,7 +60,7 @@ public class Tarefa {
         this.status = status;
     }
     public String toString(){
-        return "Tarefa: " + nome + "\n _______________ \n" + "Descrição: "  + descricao +  "\n _______________ \n" +  "Responsável: " + responsavel.getNome() + "\n _______________ \n" + "Prazo: " + prazo + "\n _______________ \n" + "Status: " + status;
+        return "Tarefa: " + nome + "\n " + "Descrição: "  + descricao +  "\n " +  "Responsável: " + responsavel.getNome() + "\n " + "Prazo: " + prazo + "\n " + "Status: " + status;
 
     }
 

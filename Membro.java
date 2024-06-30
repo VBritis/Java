@@ -82,7 +82,7 @@ public class Membro {
     }
     
     public String toString(){
-        return "Nome: " + nome + "\n _______________ \n" + "Id: "  + id +  "\n _______________ \n" +  "Lista de Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Cargo: " + cargo;
+        return "Nome: " + nome + "\n" + "Id: "  + id +  "\n" +  "Lista de Tarefas: " + this.getTarefas() + "\n " + "Cargo: " + cargo;
 
     }
 

@@ -10,20 +10,31 @@ class Reuniao {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
-        this.participantes = new Membro[50];
         this.assunto = assunto;
         this.projeto = projeto;
-        projeto.addReuniao(this);
-        projeto.addDias(dia);
+        this.participantes = new Membro[50]; // Inicialização do array de participantes
+        projeto.addReuniao(this); // Adiciona esta reunião ao projeto
+        projeto.addDias(dia); // Adiciona os dias da reunião ao projeto
     }
 
     public void addParticipante(Membro membro) {
-        for (int x = 0; x < participantes.length; x++) {
-            if (participantes[x] == null) {
-                participantes[x] = membro;
+        for (int i = 0; i < participantes.length; i++) {
+            if (participantes[i] == null) {
+                participantes[i] = membro;
                 break;
             }
         }
+    }
+
+    public String getParticipantes() {
+        StringBuilder participantesStr = new StringBuilder();
+        for (int i = 0; i < participantes.length; i++) {
+            if (participantes[i] != null) {
+                participantesStr.append(participantes[i].getNome());
+                participantesStr.append(", ");
+            }
+        }
+        return participantesStr.toString();
     }
 
     public int getDia() {
@@ -38,11 +49,13 @@ class Reuniao {
         return ano;
     }
 
-    public Membro[] getParticipantes() {
-        return participantes;
-    }
-
     public String getAssunto() {
         return assunto;
+    }
+
+    public String toString() {
+        return "Assunto: " + getAssunto() + "\n" +
+               "Participantes: " + getParticipantes() + "\n" +
+               "Data: " + dia + "/" + mes + "/" + ano;
     }
 }
