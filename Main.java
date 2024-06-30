@@ -5,9 +5,11 @@ public class Main {
         Gerenciador g1 = new Gerenciador(0, 0, 0);
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("=================================================");
-        System.out.println("      PROJECT MANAGEMENT SYSTEM");
-        System.out.println("=================================================");
+        System.out.println("             =================================================");
+        System.out.println("                         PROJECT MANAGEMENT SYSTEM");
+        System.out.println("             =================================================");
+        Smile();
+        System.out.println("+-------------------------------------------------+");
         System.out.print("Please enter the current day: ");
         int day = sc.nextInt();
         System.out.print("Please enter the current month: ");
@@ -19,7 +21,7 @@ public class Main {
 
         boolean loop = true;
         while (loop) {
-            System.out.println("To create a new project: 1    To search for an already created project: 2    To alter one project: 3    To finish program: 4");
+            displayOptions();
             int choice = sc.nextInt();
             sc.nextLine(); // Consuming the newline character left after nextInt()
 
@@ -71,7 +73,7 @@ public class Main {
             if (choice == 1 || choice == 3) {
                 boolean continuar = true;
                 while (continuar) {
-                    System.out.println("To add members: 1    To add tasks: 2    To add meetings: 3    To finish: 4");
+                    displayActionOptions();
                     int actionChoice = sc.nextInt();
                     sc.nextLine(); // Consuming the newline character left after nextInt()
 
@@ -141,6 +143,12 @@ public class Main {
                         System.out.println("Project details:");
                         System.out.println(currentProject.toString());
                         continuar = false;
+                    } else if (actionChoice == 5) {
+                        System.out.println("Task name:");
+                        String taskName = sc.nextLine();
+                        System.out.println("New Status:");
+                        int taskStatus = sc.nextInt();
+                        g1.getTarefa(taskName).setStatus(taskStatus);
                     } else {
                         System.out.println("Invalid option.");
                     }
@@ -157,4 +165,61 @@ public class Main {
         }
         sc.close();
     }
+
+    private static void displayOptions() {
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To create a new project:              1         |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To search for an already created project: 2     |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To alter one project:                3          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To finish program:                   4          |");
+        System.out.println("+-------------------------------------------------+");
+    }
+
+    private static void displayActionOptions() {
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To add members:                      1          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To add tasks:                        2          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To add meetings:                     3          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To finish:                           4          |");
+        System.out.println("+-------------------------------------------------+");
+        System.out.println("| To update a task:                    5          |");
+        System.out.println("+-------------------------------------------------+");
+    }
+    public static String Smile() {
+        StringBuilder monitor = new StringBuilder();
+        
+        // Top of the monitor
+        monitor.append("  +------------------+\n");
+        
+        // Screen with smile
+        monitor.append("  |                  |\n");
+        monitor.append("  |                  |    /\n");
+        monitor.append("  |      |   |       |   /\n");
+        monitor.append("  |                  |  /\n");
+        monitor.append("  |      \\___/       | /\n");
+        monitor.append("  |                  |/\n");
+        monitor.append("  |                  |\n");
+        
+        // Bottom of the monitor
+        monitor.append("  +------------------+\n");
+        
+        // Monitor stand
+        monitor.append("          ||      \n");
+        monitor.append("          ||      \n");
+        monitor.append("        /----\\   \n");
+        monitor.append("       /      \\  \n");
+        
+        System.out.print(monitor.toString());
+        return monitor.toString();
+    }
+
+    
 }
+
+

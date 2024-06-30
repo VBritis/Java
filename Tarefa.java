@@ -16,7 +16,9 @@ public class Tarefa {
         this.gerenciador = gerenciador;
         responsavel.addTarefa(this);
         projeto.addTarefa(this);
+        gerenciador.addTarefa(this);
         projeto.addMembro(responsavel);
+        gerenciador.addProjeto(projeto);
     }
 
     public String getNome(){

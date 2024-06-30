@@ -6,12 +6,14 @@ public class Gerenciador {
     private int mes;
     private int ano;
     private List<Projeto> projetos;
+    private List<Tarefa> tarefas;
 
     public Gerenciador(int dia, int mes, int ano) {
         this.dia = dia;
         this.mes = mes;
         this.ano = ano;
         this.projetos = new ArrayList<>();
+        this.tarefas = new ArrayList<>();
     }
 
     public void setData(int dia, int mes, int ano) {
@@ -34,6 +36,18 @@ public class Gerenciador {
 
     public void addProjeto(Projeto projeto) {
         projetos.add(projeto);
+    }
+    public void addTarefa(Tarefa tarefa) {
+        tarefas.add(tarefa);
+    }
+
+    public Tarefa getTarefa(String nome) {
+        for (Tarefa tarefa : tarefas) {
+            if (tarefa.getNome().equalsIgnoreCase(nome)) {
+                return tarefa;
+            }
+        }
+        return null;
     }
 
     public Projeto getProjeto(String nome) {
