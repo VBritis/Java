@@ -47,13 +47,14 @@ public class Gerenciador {
 
 
 
-    public String getProjeto(String nome){
+    public Projeto getProjeto(String nome){
         for(int z = 0; z < listaProjetos.length; z++){
             if(listaProjetos[z].getNome() == nome ){
-                return listaProjetos[z].toString();
+                return listaProjetos[z];
             }
         }
-        return "Não foi possível encontrar a tarefa em questão";
+        return null;
+        
     
 }
 
@@ -82,6 +83,9 @@ public class Gerenciador {
         }
         return "Não foi possível encontrar a tarefa em questão";
     }
+
+
+
 }
 
 

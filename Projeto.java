@@ -7,7 +7,9 @@ public class Projeto{
     private Calendario calendario;
     private Reuniao[] listaDeReunioes;
     private Gerenciador gerenciador;
+    private Analise analise;
     public Projeto(String nome, int prazo, Gerenciador gerenciador){
+        this.analise = new Analise(listaDeTarefas, this);
         this.nome = nome;
         this.dias = new int[50];
         this.listaDeTarefas = new Tarefa[50];
@@ -26,6 +28,17 @@ public class Projeto{
         return nome;
     }
     
+
+
+    public int getPrazo(){
+        return prazo;
+
+    }
+
+
+
+
+
     public String getReunioes(){
         for(int x = 0; x < listaDeReunioes.length; x++){ 
             if(listaDeReunioes[x] != null){
@@ -40,6 +53,17 @@ public class Projeto{
         return"";
         
     }
+
+    public Membro getMembro(String nome){
+        for(int z = 0; z < listaDeMembros.length; z++){
+            if(listaDeMembros[z].getNome() == nome ){
+                return listaDeMembros[z];
+            }
+        }
+        return null;
+    }
+
+
     public void addTarefa(Tarefa tarefa){
         for(int x = 0; x < listaDeTarefas.length; x++){
             if(listaDeTarefas[x] == null){
@@ -112,6 +136,6 @@ public class Projeto{
     }
     
     public String toString(){
-        return "    Calendario de reuniões" + this.getReunioes() +"\n\n" + "Projeto: " + nome  +  "\n _______________ \n" +  "Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Membros: " + this.getMembros();
+        return "    Calendario de reuniões" + this.getReunioes() +"\n\n" + "Projeto: " + nome  +  "\n _______________ \n" + "Conclusão: " + analise.relatorioProjeto(this) +"Tarefas: " + this.getTarefas() + "\n _______________ \n" + "Membros: " + this.getMembros();
     }
 }
