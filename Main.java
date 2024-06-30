@@ -140,8 +140,12 @@ public class Main {
 
                         System.out.println("Meeting added successfully!");
                     } else if (actionChoice == 4) {
+                        Analise analise = new Analise(null, currentProject);
                         System.out.println("Project details:");
                         System.out.println(currentProject.toString());
+                        System.out.println("Conclusão:");
+                        System.out.println(analise.relatorioProjeto(currentProject));
+
                         continuar = false;
                     } else if (actionChoice == 5) {
                         System.out.println("Task name:");
@@ -153,14 +157,6 @@ public class Main {
                         System.out.println("Invalid option.");
                     }
                 }
-            }
-
-            System.out.println("=================================================");
-            System.out.println("Final project details:");
-            if (currentProject != null) {
-                System.out.println(currentProject.toString());
-            } else {
-                System.out.println("No project to display.");
             }
         }
         sc.close();

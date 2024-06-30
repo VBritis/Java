@@ -145,22 +145,21 @@ class Projeto {
     public String toString() {
         String separator = "=================================================";
         String newline = "\n";
-        String line = " _______________ ";
+        String line = " _______________________________________ ";
     
         String result = separator + newline;
-        result += "Final project details:" + newline + newline;
-        
         result += "    Calendario de reuniões" + newline;
         result += getReunioes() + newline + newline;
+
+        result += "Final project details:" + newline + newline;
     
         result += "Projeto: " + nome + newline;
         result += line + newline;
-        result += "Conclusão: " + analise.relatorioProjeto(this) + newline;
+
         result += "Tarefas: " + getTarefas() + newline;
         result += line + newline;
-        result += "Membros: " + getMembros() + newline + newline;
-    
-        result += separator + newline;
+        result += "Membros: " + getMembros() + newline;
+        
         
         return result;
     }
