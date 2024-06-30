@@ -15,7 +15,6 @@ public class Tarefa {
         this.status = status;
         this.gerenciador = gerenciador;
         responsavel.addTarefa(this);
-        gerenciador.addTarefa(this);
         projeto.addTarefa(this);
         projeto.addMembro(responsavel);
     }

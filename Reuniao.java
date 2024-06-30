@@ -1,49 +1,48 @@
-public class Reuniao {
+class Reuniao {
     private int dia;
     private int mes;
+    private int ano;
     private Membro[] participantes;
     private String assunto;
     private Projeto projeto;
 
-    public Reuniao(int dia, int mes, Membro[] participantes, String assunto, Projeto projeto){
+    public Reuniao(int dia, int mes, int ano, String assunto, Projeto projeto) {
         this.dia = dia;
         this.mes = mes;
-        this.participantes = participantes;
+        this.ano = ano;
+        this.participantes = new Membro[50];
         this.assunto = assunto;
+        this.projeto = projeto;
         projeto.addReuniao(this);
         projeto.addDias(dia);
-
     }
 
-    public int getDia(){
+    public void addParticipante(Membro membro) {
+        for (int x = 0; x < participantes.length; x++) {
+            if (participantes[x] == null) {
+                participantes[x] = membro;
+                break;
+            }
+        }
+    }
+
+    public int getDia() {
         return dia;
     }
-    
-    public int getMes(){
+
+    public int getMes() {
         return mes;
     }
-    
-    public Membro[] getParticipantes(){
+
+    public int getAno() {
+        return ano;
+    }
+
+    public Membro[] getParticipantes() {
         return participantes;
     }
-    
-    public String getAssunto(){
+
+    public String getAssunto() {
         return assunto;
-    }
-    
-    public void setDia(int dia){
-        this.dia = dia;
-    }
-    
-    public void setMes(int mes){
-        this.mes = mes;
-    }
-    
-    public void setParticipantes(Membro[] participantes){
-        this.participantes= participantes;
-    }
-    
-    public void setAssunto(String assunto){
-        this.assunto = assunto;
     }
 }

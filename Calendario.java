@@ -78,7 +78,7 @@ public class Calendario {
 
 
 
-    public void imprimirCalenReunioes(int[] dias) {
+    public void imprimirCalenReunioes(int[] dias,int mess) {
         System.out.println("  Dom Seg Ter Qua Qui Sex Sáb");
     
         for (int linha = 0; linha < 6; linha++) {
@@ -104,7 +104,7 @@ public class Calendario {
             System.out.println();
         }
     
-        System.out.println("            Mês: " + this.mes);
+        System.out.println("            Mês: " + mess);
     }
 
     public static boolean anoBi(int ano){
