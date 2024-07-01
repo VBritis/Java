@@ -5,7 +5,7 @@ public class Gerenciador {
     private int dia;
     private int mes;
     private int ano;
-    private List<Projeto> projetos;
+    private List<Projeto> projetos; //Teste de array list!
     private List<Tarefa> tarefas;
 
     public Gerenciador(int dia, int mes, int ano) {
