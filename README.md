@@ -79,3 +79,79 @@ A classe `Tarefa` representa uma tarefa dentro do projeto. Aqui estão os detalh
 - Métodos getters e setters para os atributos da tarefa.
 - `toString()`: Retorna uma representação textual detalhada da tarefa.
 
+### Reuniao
+
+A classe `Reuniao` representa uma reunião dentro do projeto. Aqui estão os detalhes principais:
+
+#### Atributos
+
+- `dia`, `mes`, `ano`: Data da reunião.
+- `participantes`: Array de objetos `Membro`, representando os participantes da reunião.
+- `assunto`: Assunto da reunião.
+- `projeto`: Projeto ao qual a reunião pertence.
+
+#### Métodos Principais
+
+- `Reuniao(int dia, int mes, int ano, String assunto, Projeto projeto)`: Construtor que inicializa uma reunião com data, assunto e associa à um projeto.
+- `addParticipante(Membro membro)`: Adiciona um membro como participante da reunião.
+- `getParticipantes()`: Retorna uma representação dos participantes da reunião.
+- `getDia()`, `getMes()`, `getAno()`: Métodos getters para obter a data da reunião.
+- `getAssunto()`: Retorna o assunto da reunião.
+- `toString()`: Retorna uma representação textual detalhada da reunião.
+
+### Gerenciador
+
+A classe `Gerenciador` é responsável pelo gerenciamento global de projetos, tarefas e datas. Aqui estão os principais aspectos:
+
+#### Atributos
+
+- `dia`, `mes`, `ano`: Data atual gerenciada pelo gerenciador.
+- `projetos`: Lista de objetos `Projeto`, representando os projetos gerenciados.
+- `tarefas`: Lista de objetos `Tarefa`, representando as tarefas gerenciadas.
+
+#### Métodos Principais
+
+- `Gerenciador(int dia, int mes, int ano)`: Construtor que inicializa o gerenciador com uma data inicial.
+- `setData(int dia, int mes, int ano)`: Define a data atual no gerenciador.
+- `getDia()`, `getMes()`, `getAno()`: Métodos getters para obter a data atual.
+- `addProjeto(Projeto projeto)`: Adiciona um projeto à lista de projetos gerenciados.
+- `addTarefa(Tarefa tarefa)`: Adiciona uma tarefa à lista de tarefas gerenciadas.
+- `getTarefa(String nome)`: Retorna uma tarefa específica pelo nome.
+- `getProjeto(String nome)`: Retorna um projeto específico pelo nome.
+
+### Analise
+
+A classe `Analise` realiza análises sobre as tarefas de um projeto específico. Aqui estão os detalhes principais:
+
+#### Atributos
+
+- `listaDeTarefas`: Array de objetos `Tarefa`, representando as tarefas a serem analisadas.
+- `porcentagens`: Array de inteiros para armazenar porcentagens de conclusão das tarefas.
+- `projeto`: Projeto ao qual as tarefas pertencem.
+- `responsavel`: Membro responsável pela análise das tarefas.
+
+#### Métodos Principais
+
+- `Analise(Tarefa[] listaDeTarefas, Projeto projeto)`: Construtor que inicializa a análise com uma lista de tarefas e um projeto.
+- `relatorioProjeto(Projeto projeto)`: Gera um relatório de análise do projeto, calculando a porcentagem média de conclusão das tarefas.
+
+### Membro
+
+A classe `Membro` representa um membro envolvido no projeto. Aqui estão os detalhes principais:
+
+#### Atributos
+
+- `nome`: Nome do membro.
+- `id`: Identificador único do membro.
+- `lista`: Array de objetos `Tarefa`, representando as tarefas atribuídas ao membro.
+- `cargo`: Cargo ou função do membro no projeto.
+
+#### Métodos Principais
+
+- `Membro(String nome, int id, Tarefa[] lista, String cargo)`: Construtor que inicializa um membro com nome, ID, lista de tarefas e cargo.
+- Métodos getters e setters para os atributos do membro.
+- `addTarefa(Tarefa tarefa)`: Adiciona uma nova tarefa à lista de tarefas do membro.
+- `getTarefas()`: Retorna uma representação das tarefas atribuídas ao membro.
+- `tarefaInfo(String nome)`: Retorna informações detalhadas de uma tarefa específica atribuída ao membro.
+- `toString()`: Retorna uma representação textual detalhada do membro.
+
